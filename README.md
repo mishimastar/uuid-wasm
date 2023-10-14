@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to uuid-wasm 👋</h1>
+<h1 align="center">uuid-wasm</h1>
 <p>
   <a href="https://www.npmjs.com/package/uuid-wasm" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/uuid-wasm.svg">
@@ -65,12 +65,12 @@ run().catch(console.error);
 
 ## Author
 
-👤 **Sergey Saltykov**
+**Sergey Saltykov**
 
 -   Github: [@mishimastar](https://github.com/mishimastar)
 -   Email: <mishimastar3000@gmail.com>
 
-## 🤝 Contributing
+## Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/mishimastar/uuid-wasm/issues).
 
@@ -78,7 +78,7 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 Give a ⭐️ if this project helped you!
 
-## 📝 License
+## License
 
 Copyright © 2023 [Sergey Saltykov](https://github.com/mishimastar).<br />
 This project is [MIT](https://github.com/mishimastar/uuid-wasm/blob/master/LICENSE) licensed.
