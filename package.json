@@ -1,6 +1,6 @@
 {
     "name": "uuid-wasm",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "A WebAssembly implementation of UUID v1 generator and parser",
     "main": "main.js",
     "scripts": {
