@@ -21,6 +21,25 @@
 
 ### 🏠 [Homepage](https://github.com/mishimastar/uuid-wasm#readme)
 
+## About
+
+The Fastest UUID v1 Parser and Generator for NodeJS.
+
+> The results were obtained by running each function inconsistently 1,000,000 times with NodeJS v20.8.1, R7 6800H, 16g DDR5
+
+|                      **Parsing (string --> Data)**                       |  **Average, ops**  |  **Median, ops**   |
+| :----------------------------------------------------------------------: | :----------------: | :----------------: |
+|    [uuid-wasi@0.2.0](https://www.npmjs.com/package/uuid-wasm) unsafe     | 4,414,844 ± 4.27 % | 4,524,905 ± 5.26 % |
+|     [uuid-wasi@0.2.0](https://www.npmjs.com/package/uuid-wasm) safe      | 3,884,245 ± 2.24 % | 3,984,022 ± 2.46 % |
+|             [uuid@9.0.0](https://www.npmjs.com/package/uuid)             |       -----        |       -----        |
+| [cassandra-driver@4.6.4](https://www.npmjs.com/package/cassandra-driver) |  906,154 ± 5.43 %  |  924,215 ± 6.76 %  |
+
+|                        **Generate (--> string)**                         |  **Average, ops**   |   **Median, ops**   |
+| :----------------------------------------------------------------------: | :-----------------: | :-----------------: |
+|        [uuid-wasi@0.2.0](https://www.npmjs.com/package/uuid-wasm)        | 6,516,927 ± 10.13 % | 6,584,145 ± 12.64 % |
+|             [uuid@9.0.0](https://www.npmjs.com/package/uuid)             | 3,705,620 ± 7.15 %  | 3,785,155 ± 9.99 %  |
+| [cassandra-driver@4.6.4](https://www.npmjs.com/package/cassandra-driver) |  278,435 ± 6.48 %   |  286,600 ± 9.92 %   |
+
 ## Prerequisites
 
 -   node >=14.21.3
