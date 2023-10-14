@@ -1,0 +1,60 @@
+{
+    "name": "@wasm/uuid",
+    "version": "0.1.0",
+    "description": "A WebAssembly implementation of UUID v1 generator and parser",
+    "main": "main.js",
+    "scripts": {
+        "clean": "rimraf {tsconfig.tsbuildinfo,built}",
+        "pret": "prettier --write .",
+        "lint": "eslint .",
+        "compile": "tsc -p .",
+        "build": "npm run clean && npm run asm && tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && tsc -p tsconfig.types.json && cp package.json built/package.json && npm run clone_wasm && npm run add_package",
+        "asm": "wat2wasm ./src/uuid.wat -o ./src/uuid.wasm",
+        "clone_wasm": "cp src/uuid.wasm built/esm && cp src/uuid.wasm built/cjs",
+        "add_package": "echo '{\"type\": \"module\"}' > built/esm/package.json && echo '{\"type\": \"commonjs\"}' > built/cjs/package.json",
+        "start": "npm run compile && npm run asm && node --experimental-wasi-unstable-preview1  ./built/test.js "
+    },
+    "exports": {
+        "./*": {
+            "types": "./types/*.d.ts",
+            "require": "./cjs/*.js",
+            "import": "./esm/*.js",
+            "default": "./esm/*.js"
+        }
+    },
+    "typesVersions": {
+        ">=4.0": {
+            "*": [
+                "types/*"
+            ]
+        }
+    },
+    "types": "./index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mishimastar/uuid-wasm.git"
+    },
+    "keywords": [
+        "webassembly",
+        "uuid",
+        "parser",
+        "wasi",
+        "nodejs",
+        "typescript"
+    ],
+    "author": "Sergey Saltykov <mishimastar3000@gmail.com> (https://github.com/mishimastar)",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^18.6.3",
+        "@typescript-eslint/eslint-plugin": "^5.31.0",
+        "@typescript-eslint/parser": "^5.31.0",
+        "prettier": "^2.7.1"
+    },
+    "dependencies": {
+        "typescript": "^4.7.4"
+    },
+    "bugs": {
+        "url": "https://github.com/mishimastar/uuid-wasm/issues"
+    },
+    "homepage": "https://github.com/mishimastar/uuid-wasm#readme"
+}
