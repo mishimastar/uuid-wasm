@@ -16,6 +16,8 @@
 </p>
 
 > A WebAssembly implementation of UUID v1 generator and parser
+>
+> Supports both ESM an CommonJS
 
 ### 🏠 [Homepage](https://github.com/mishimastar/uuid-wasm#readme)
 
@@ -31,8 +33,34 @@ npm i uuid-wasm
 
 ## Usage
 
-```sh
-npm run start
+```ts
+import { InitUUID } from 'uuid-wasm';
+
+const run = async () => {
+    const { v1, nanos, timeFromV1, unsafeTimeFromV1 } = await InitUUID();
+
+    const uuid = v1();
+    console.log(uuid);
+    // 6335ff92-6a7a-11ee-929a-eedc63b9d38e
+
+    const nanoseconds = nanos();
+    console.log(nanoseconds);
+    // 1697278437810573000n
+
+    const date1 = timeFromV1(uuid);
+    console.log(date1);
+    // 2023-10-14T10:13:57.810Z
+    console.log(date1.getTime());
+    // 1697278547627
+
+    const date2 = unsafeTimeFromV1(uuid);
+    console.log(date2);
+    // 2023-10-14T10:13:57.810Z
+    console.log(date2.getTime());
+    // 1697278547627
+};
+
+run().catch(console.error);
 ```
 
 ## Author
