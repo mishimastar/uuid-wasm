@@ -1,6 +1,6 @@
 {
     "name": "uuid-wasm",
-    "version": "0.1.6",
+    "version": "0.2.0",
     "description": "A WebAssembly implementation of UUID v1 generator and parser",
     "main": "main.js",
     "scripts": {
@@ -14,7 +14,8 @@
         "clone_lic_readme": "cp README.md built && cp LICENSE built",
         "add_package": "echo '{\"type\": \"module\"}' > built/esm/package.json && echo '{\"type\": \"commonjs\"}' > built/cjs/package.json",
         "start": "npm run compile && npm run asm && node --experimental-wasi-unstable-preview1  ./built/test.js ",
-        "patch": "npm --no-git-tag-version version patch"
+        "patch": "npm --no-git-tag-version version patch",
+        "minor": "npm --no-git-tag-version version minor"
     },
     "exports": {
         ".": {
