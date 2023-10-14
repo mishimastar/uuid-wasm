@@ -1,6 +1,6 @@
 {
     "name": "uuid-wasm",
-    "version": "0.1.2",
+    "version": "0.1.4",
     "description": "A WebAssembly implementation of UUID v1 generator and parser",
     "main": "main.js",
     "scripts": {
@@ -13,7 +13,8 @@
         "clone_wasm": "cp src/uuid.wasm built/esm && cp src/uuid.wasm built/cjs",
         "clone_lic_readme": "cp README.md built && cp LICENSE built",
         "add_package": "echo '{\"type\": \"module\"}' > built/esm/package.json && echo '{\"type\": \"commonjs\"}' > built/cjs/package.json",
-        "start": "npm run compile && npm run asm && node --experimental-wasi-unstable-preview1  ./built/test.js "
+        "start": "npm run compile && npm run asm && node --experimental-wasi-unstable-preview1  ./built/test.js ",
+        "patch": "npm --no-git-tag-version version patch"
     },
     "exports": {
         "./*": {
@@ -30,7 +31,7 @@
             ]
         }
     },
-    "types": "./index.d.ts",
+    "types": "./main.d.ts",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/mishimastar/uuid-wasm.git"
