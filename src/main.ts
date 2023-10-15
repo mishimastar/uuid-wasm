@@ -1,7 +1,7 @@
 import { WASI, WASIOptions } from 'wasi';
-import { resolve } from 'path';
-import { readFile } from 'fs/promises';
+
 import { ExportedParse, UUIDGen, UUIDModule } from './uuid.js';
+import { GenBytes, ParseBytes } from './wasm.js';
 
 export type ExtendedWASIOptions = WASIOptions & {
     version: 'unstable' | 'preview1';
@@ -11,9 +11,9 @@ const opts: ExtendedWASIOptions = { version: 'preview1' };
 
 export const InitUUID = async (options = opts): Promise<UUIDModule> => {
     const wasi = new WASI(options);
-    const wasmGen = await WebAssembly.compile(await readFile(resolve(__dirname, './gen.wasm')));
+    const wasmGen = await WebAssembly.compile(GenBytes);
     const { pasteShiftChar, getMilliseconds } = (await (
-        await WebAssembly.instantiate(await readFile(resolve(__dirname, './parse.wasm')))
+        await WebAssembly.instantiate(ParseBytes)
     ).instance.exports) as ExportedParse;
     const instanceGen = await WebAssembly.instantiate(wasmGen, { wasi_snapshot_preview1: wasi.wasiImport });
 
