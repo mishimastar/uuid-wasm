@@ -2,13 +2,14 @@
     "compilerOptions": {
         "rootDir": "./src",
         "outDir": "./built",
-        "composite": true,
         "target": "ES6",
         "module": "CommonJS",
         "resolveJsonModule": true,
         "moduleResolution": "Node",
         "allowJs": false,
         "checkJs": false,
+        "declaration": false,
+        "incremental": false,
         "allowSyntheticDefaultImports": true,
 
         "esModuleInterop": true,

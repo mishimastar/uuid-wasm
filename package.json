@@ -1,6 +1,6 @@
 {
     "name": "uuid-wasm",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "A WebAssembly implementation of UUID v1 generator and parser",
     "main": "main.js",
     "scripts": {
@@ -8,7 +8,8 @@
         "pret": "prettier --write .",
         "lint": "eslint .",
         "compile": "tsc -p .",
-        "build": "npm run clean && npm run asm && npm run insert_wasm && tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && tsc -p tsconfig.types.json && cp package.json built/package.json && npm run add_package && npm run clone_lic_readme",
+        "buildts": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && tsc -p tsconfig.types.json && cp package.json built/package.json",
+        "build": "npm run clean && npm run asm && npm run insert_wasm && npm run buildts && npm run add_package && npm run clone_lic_readme",
         "asm": "wat2wasm ./src/gen.wat -o ./src/gen.wasm && wat2wasm ./src/parse.wat -o ./src/parse.wasm",
         "insert_wasm": "node insert_wasm.js",
         "clone_lic_readme": "cp README.md built && cp LICENSE built",

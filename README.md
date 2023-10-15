@@ -34,6 +34,8 @@ The Fastest UUID v1 Parser and Generator for NodeJS.
 |             [uuid@9.0.0](https://www.npmjs.com/package/uuid)             |       -----        |       -----        |
 | [cassandra-driver@4.6.4](https://www.npmjs.com/package/cassandra-driver) |  906,154 ± 5.43 %  |  924,215 ± 6.76 %  |
 
+---
+
 |                        **Generate (--> string)**                         |  **Average, ops**   |   **Median, ops**   |
 | :----------------------------------------------------------------------: | :-----------------: | :-----------------: |
 |        [uuid-wasi@0.2.0](https://www.npmjs.com/package/uuid-wasm)        | 6,516,927 ± 10.13 % | 6,584,145 ± 12.64 % |
